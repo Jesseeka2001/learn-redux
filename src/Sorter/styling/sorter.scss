@@ -1,0 +1,112 @@
+$primary-color: #041c2c;
+$secondary-color: #2f87b9;
+.btn {
+    background-color: transparent;
+    border: 2px solid $secondary-color;
+    padding: 1rem 5.3rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    color: white;
+    font-family: inherit;
+    margin-bottom: 0.5rem;
+    line-height: 0px;
+}
+.btn:focus,
+.btn:hover {
+    outline: 0;
+    background-color: $secondary-color;
+    color: $primary-color;
+}
+
+#sort {
+    display: inline-block;
+    margin: 1rem 8rem;
+}
+
+.sort {
+    display: none;
+    position: relative;
+    background-color: transparent;
+    border: 2px solid orange;
+    padding: 0.5rem 3rem;
+    max-width: 3000px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    font-family: inherit;
+    cursor: pointer;
+
+    margin-bottom: 0.5rem;
+}
+
+#sort:hover .sort {
+    display: block;
+    text-decoration: none !important;
+}
+.sort:hover {
+    background-color: $primary-color;
+    color: $secondary-color;
+    border: solid $secondary-color;
+}
+
+.no-results{
+    color: white;
+    text-align: center;
+}
+@media only screen and (max-width: 617px) {
+    .btn {
+        display: none;
+    }
+
+    #sort:hover .btn {
+        display: none;
+    }
+    #sort {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        float: none;
+        margin-top: 1rem;
+    }
+
+    .sort {
+        border: 2px solid $secondary-color;
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+        display: inline-block;
+    }
+    .sort:hover {
+        background-color: $secondary-color;
+        color: white;
+    }
+}
+
+@media only screen and (min-width: 617px) and (max-width: 1200px) {
+    .btn {
+        padding: 0.8rem 4.75rem;
+        margin-right: 1rem;
+        display: block;
+    }
+
+    #sort {
+        display: inline-block;
+        margin-left: 10%;
+    }
+    #sort:hover .sort {
+        display: inline-block;
+    }
+    .sort {
+        background-color: transparent;
+        border: 2px solid orange;
+        padding: 0.3rem 1rem;
+        max-width: 3000px;
+        border-radius: 10px;
+        font-size: 1rem;
+        color: rgb(255, 255, 255);
+        font-family: inherit;
+        margin-bottom: 0.5rem;
+    }
+}

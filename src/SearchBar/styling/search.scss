@@ -1,0 +1,58 @@
+$primary-color: #041c2c;
+$secondary-color: #2f87b9;
+
+.search{
+    background-color: transparent;
+    border: 2px solid $secondary-color;
+    padding:0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    color:#fff;
+    font-family: inherit;
+    margin:0rem 8rem;
+    display: block;
+}
+
+.search:focus{
+    outline:0;
+    background-color: $secondary-color;
+}
+
+.search::placeholder{
+    color: white;
+}
+.no-results{
+    color:white;
+ }
+ 
+ 
+@media only screen and (max-width: 617px) {
+
+ 
+    .search{
+        padding:0.5rem;
+        font-size: 0.9rem;
+        text-align: center;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2rem;
+        align-items: center;
+        margin: 1rem auto;
+        float: none;
+        }
+ }
+ 
+@media only screen and (min-width: 617px) and (max-width: 1200px) {
+ 
+    .search{
+        display: inline-block;
+        padding:0.3rem;
+        text-align: center;
+        margin: 1rem auto;
+        margin-left: 10%;
+        margin-right: 30rem;
+    }
+    
+    
+ }
