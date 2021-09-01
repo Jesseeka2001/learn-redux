@@ -18,6 +18,9 @@ function App() {
           <Route path="/" exact >
             <Genres/>
           </Route>
+          <Route path="/Search" exact >
+            <Genres/>
+          </Route>
           <Route path="/trailer/:id" render={({ match }) => (
             <Trailer id={match.params.id} />
           )} />

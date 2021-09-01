@@ -14,7 +14,7 @@ function SearchResults(props) {
     }, [props])
 
 
-    if (props.movies === null) {
+    if (props.movies ==0) {
         return (
             <div>
                 <Link to={'/'}>
@@ -31,6 +31,7 @@ function SearchResults(props) {
                 <Link to={'/'}>
                     <Button>Home</Button>
                 </Link>
+                <Search/>
                 <MovieList data={props.movies} />
             </div>
         )

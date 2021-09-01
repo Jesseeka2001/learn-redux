@@ -5,7 +5,7 @@ import Overview from './Overview'
 
 const MovieList = (props) => {
 
-    
+
     const getColor = (vote) => {
         switch (true) {
             case (vote >= 8): return `green`;
@@ -15,7 +15,11 @@ const MovieList = (props) => {
     }
 
 
-
+    if(props.data==0){
+        return( 
+            <h1 className='no-results'> No results</h1>
+        )
+    }
     return (
         <div>
             <div className="main">
