@@ -33,7 +33,6 @@ const Search=() =>{
                     <Button type="submit" value="submit" style={{
                         backgroundColor: "#2f87b9",
                         padding: "12px",
-                        // border: 'none'
                         fontSize: '12px',
                         marginLeft: '15rem'
 

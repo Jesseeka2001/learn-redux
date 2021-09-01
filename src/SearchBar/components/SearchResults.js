@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Search from './Search';
 import '../styling/search.css'
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import MovieList from '../../Movies/components/MovieList';
+// import { searchURL } from '../../const'
+import { search_results } from '../actions/searchActions'
+import {PropTypes} from 'prop-types'
+import {connect} from 'react-redux'
 
-
-function SearchResults(params) {
+function SearchResults(props) {
     useEffect(() => {
+        props.search_results(props.id)
+    }, [props])
 
-        async function fetchItem() {
-            const data = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=5b6e6406d9a0fb2859535c275f83e448&query=${params.id}`)
-
-            const items = await data.json();
-            setData(items.results)
-        }
-        fetchItem();
-    }, [params])
-
-    const [data, setData] = useState([]);
-    if (data === null) {
+    if (props.movies === null) {
         return (
             <div>
                 <Link to={'/'}>
@@ -36,10 +31,19 @@ function SearchResults(params) {
                 <Link to={'/'}>
                     <Button>Home</Button>
                 </Link>
-                <MovieList data={data} />
+                <MovieList data={props.movies} />
             </div>
         )
     }
 }
 
-export default SearchResults
+SearchResults.propTypes = {
+    search_results: PropTypes.func.isRequired,
+    movies: PropTypes.array.isRequired
+}
+
+const mapStateToProps = state => ({
+    movies: state.search.results,
+})
+
+export default connect(mapStateToProps, { search_results })(SearchResults)
