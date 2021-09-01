@@ -6,10 +6,14 @@ import MovieList from '../../Movies/components/MovieList';
 import Sorter from '../../Sorter/components/Sorter'
 import Search from '../../SearchBar/components/Search';
 
+
+
 const GenreFilter = (props) => {
     useEffect(() => {
         props.updatedMovieList(props.counter)
     }, [props])
+
+
 
     return (
         <div>
@@ -19,6 +23,8 @@ const GenreFilter = (props) => {
         </div>
     )
 }
+
+
 
 GenreFilter.propTypes = {
     updatedMovieList: PropTypes.func.isRequired,

@@ -4,6 +4,8 @@ import '../styling/movies.css'
 import Overview from './Overview'
 
 const MovieList = (props) => {
+
+    
     const getColor = (vote) => {
         switch (true) {
             case (vote >= 8): return `green`;
@@ -11,6 +13,9 @@ const MovieList = (props) => {
             default: return 'red';
         }
     }
+
+
+
     return (
         <div>
             <div className="main">

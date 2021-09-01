@@ -4,7 +4,6 @@ import '../styling/search.css'
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import MovieList from '../../Movies/components/MovieList';
-// import { searchURL } from '../../const'
 import { search_results } from '../actions/searchActions'
 import {PropTypes} from 'prop-types'
 import {connect} from 'react-redux'
@@ -13,6 +12,7 @@ function SearchResults(props) {
     useEffect(() => {
         props.search_results(props.id)
     }, [props])
+
 
     if (props.movies === null) {
         return (

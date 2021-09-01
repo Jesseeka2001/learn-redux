@@ -4,16 +4,12 @@ import GenreFilter from './GenreFilter'
 import { fetchGenres, setGenre } from '../actions/genreActions';
 import PropTypes from 'prop-types'
 import '../styling/navigation.css'
-// import { Link } from 'react-router-dom';
-// import { Button } from 'react-bootstrap';
-import Trailer from '../../Movies/components/Trailer'
 
 
 const Genres = (props) => {
     const dispatch = useDispatch()
     const [current, setCurrent] = useState([])
     const [color, setColor] = useState(false)
-    const [click, setClick] = useState(false)
 
     useEffect(() => {
         props.fetchGenres()
@@ -24,7 +20,6 @@ const Genres = (props) => {
         (item) => {
             let selectedGenre = []
             const index = selectedGenre.indexOf(item);
-            // index > -1 ? selectedGenre.splice(index, 1) : (selectedGenre.push(item), function one(){ console.log(1)} );
             if (index > -1) {
                 selectedGenre.splice(index, 1);
             } else {
@@ -34,14 +29,12 @@ const Genres = (props) => {
             dispatch(setGenre([...current, selectedGenre[0]]))
             setCurrent([...current, selectedGenre[0]])
             highlightSelection([...current, selectedGenre[0]])
-
-
-
-        },
-        [current, dispatch]
+        }, [current, dispatch]
     )
 
-    function highlightSelection(props) {
+
+
+    const highlightSelection = (props) => {
         const tags = document.querySelectorAll('.tag');
 
         tags.forEach(tag => {
@@ -54,8 +47,8 @@ const Genres = (props) => {
     }
     function refreshPage() {
         window.location.reload(false);
-      }
-      
+    }
+
 
     return (
         <div>

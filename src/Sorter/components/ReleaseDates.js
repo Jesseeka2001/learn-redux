@@ -11,6 +11,8 @@ const ReleaseDates=(props) =>{
         props.releaseDateSort()
     }, [props])
 
+
+    
     return (
         <div>
             <Link to={'/'}>
@@ -19,7 +21,6 @@ const ReleaseDates=(props) =>{
             <h1 className="no-results">Sorted by Release Dates</h1>
             <MovieList data={props.movies}/>
         </div>
-
     )
 }
 

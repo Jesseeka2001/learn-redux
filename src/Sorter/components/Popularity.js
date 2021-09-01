@@ -11,6 +11,9 @@ const Popularity = (props) => {
         props.popularitySort();
     }, [props])
 
+
+
+    
     return (
         <div>
             <Link to={'/'}>

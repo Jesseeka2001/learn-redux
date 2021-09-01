@@ -11,6 +11,8 @@ const Trailer = (props) => {
         props.fetchTrailers(props.id)
     }, [props])
 
+
+    
     return (
         <div >
             <Link to={`/`} >

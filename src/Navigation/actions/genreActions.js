@@ -29,5 +29,4 @@ export const updatedMovieList = (value) => dispatch => {
             });
         })
         .catch(error => console.log('Error fetching selected genre movies: ' + error))
-
 }

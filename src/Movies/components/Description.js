@@ -6,10 +6,10 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 const Description = (props) => {
-
     useEffect(() => {
         props.fetchDesc(props.id)
     }, [props]);
+
 
     const getColor = (vote) => {
         switch (true) {
@@ -18,6 +18,9 @@ const Description = (props) => {
             default: return 'red';
         }
     }
+
+
+
     const movie = props.desc;
     return (
         <div>

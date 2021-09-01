@@ -6,15 +6,25 @@ const Sorter = () => {
     return (
         <div id="sort">
             <button className="btn"> Sort by: </button>
+
             <Link to={`/Sort_by/Rating`}>
-                <button className="sort"  >   Best Rated          </button>
+                <button className="sort"  >
+                    Best Rated
+                </button>
             </Link>
+
             <Link to={`/Sort_by/Release_dates`} >
-                <button className="sort" >   Latest Release Dates </button>
+                <button className="sort" >
+                    Latest Release Dates
+                </button>
             </Link>
+
             <Link to={`/Sort_by/Popularity`}>
-                <button className="sort"  >  Popularity          </button>
+                <button className="sort"  >
+                    Popularity
+                </button>
             </Link>
+            
         </div>
     )
 }
