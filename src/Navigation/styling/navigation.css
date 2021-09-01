@@ -35,6 +35,13 @@
   cursor: pointer;
 }
 
+.clear {
+  padding: 10px 20px;
+  border-radius: 50px;
+  float: right;
+  cursor: pointer;
+}
+
 .tag.highlight {
   background-color: #041c2c;
 }

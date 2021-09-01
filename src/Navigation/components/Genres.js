@@ -1,15 +1,19 @@
 import { useState, useEffect, useCallback } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import GenreFilter from './GenreFilter'
 import { fetchGenres, setGenre } from '../actions/genreActions';
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import '../styling/navigation.css'
+// import { Link } from 'react-router-dom';
+// import { Button } from 'react-bootstrap';
+import Trailer from '../../Movies/components/Trailer'
 
 
 const Genres = (props) => {
     const dispatch = useDispatch()
     const [current, setCurrent] = useState([])
+    const [color, setColor] = useState(false)
+    const [click, setClick] = useState(false)
 
     useEffect(() => {
         props.fetchGenres()
@@ -20,17 +24,24 @@ const Genres = (props) => {
         (item) => {
             let selectedGenre = []
             const index = selectedGenre.indexOf(item);
-            index > -1 ? selectedGenre.splice(index, 1) : selectedGenre.push(item);
-
+            // index > -1 ? selectedGenre.splice(index, 1) : (selectedGenre.push(item), function one(){ console.log(1)} );
+            if (index > -1) {
+                selectedGenre.splice(index, 1);
+            } else {
+                selectedGenre.push(item);
+                setColor(true)
+            }
             dispatch(setGenre([...current, selectedGenre[0]]))
             setCurrent([...current, selectedGenre[0]])
             highlightSelection([...current, selectedGenre[0]])
+
+
+
         },
         [current, dispatch]
     )
 
-
-    function highlightSelection  (props) {
+    function highlightSelection(props) {
         const tags = document.querySelectorAll('.tag');
 
         tags.forEach(tag => {
@@ -41,7 +52,10 @@ const Genres = (props) => {
             hightlightedTag.classList.add('highlight');
         })
     }
-
+    function refreshPage() {
+        window.location.reload(false);
+      }
+      
 
     return (
         <div>
@@ -59,6 +73,7 @@ const Genres = (props) => {
                             </button>
                         </div>
                     ))}
+                    {color ? <button className='clear' onClick={refreshPage}>clear </button> : null}
                 </div>
             </div>
             <GenreFilter />

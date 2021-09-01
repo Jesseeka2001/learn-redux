@@ -2,6 +2,7 @@ import '../styling/search.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import React from 'react'
+import { Button } from 'react-bootstrap'
 
 const Search=() =>{
     const [value, setValue] = useState([])
@@ -29,11 +30,14 @@ const Search=() =>{
                 </label>
 
                 <Link to={`/Search/${value}`} key={value}>
-                    <input type="submit" value="" style={{
-                        backgroundColor: "transparent",
-                        padding: "1px",
-                        border: 'none'
-                    }} />
+                    <Button type="submit" value="submit" style={{
+                        backgroundColor: "#2f87b9",
+                        padding: "12px",
+                        // border: 'none'
+                        fontSize: '12px',
+                        marginLeft: '15rem'
+
+                    }} > Submit</Button>
 
                 </Link>
 
