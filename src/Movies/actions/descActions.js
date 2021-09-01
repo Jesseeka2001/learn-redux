@@ -1,8 +1,7 @@
 import { FETCH_DESCRIPTION } from './type';
-import { BASE_URL, API_KEY } from '../../const';
 
 export const fetchDesc = (props) => dispatch => {
-        fetch(`${BASE_URL}/movie/${props}?${API_KEY}`)
+        fetch(`${process.env.REACT_APP_BASE_URL}/movie/${props}?${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(desc => {dispatch({
             type: FETCH_DESCRIPTION,

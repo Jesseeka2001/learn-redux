@@ -1,7 +1,7 @@
 import { FETCH_DESCRIPTION } from "../actions/type";
 
 const initialState = {
-    items: [], 
+    items: {}
 }
 
 function descReducer(state = initialState, action) {

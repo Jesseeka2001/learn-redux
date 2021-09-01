@@ -1,8 +1,7 @@
 import { FETCH_GENRES, NEW_MOVIES } from './types';
-import { API_URL, GENRE_LIST } from '../../const';
 
 export const fetchGenres = () => dispatch => {
-    fetch(GENRE_LIST)
+    fetch(`${process.env.REACT_APP_BASE_URL}/genre/movie/list?${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(genres => dispatch({
             type: FETCH_GENRES,
@@ -20,7 +19,7 @@ export const setGenre = (action) => {
 
 
 export const updatedMovieList = (value) => dispatch => {
-    fetch(`${API_URL}&with_genres=${value}`)
+    fetch(`${process.env.REACT_APP_API_URL}&with_genres=${value}`)
         .then(res => res.json())
         .then(post => {
             dispatch({

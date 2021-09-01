@@ -1,8 +1,7 @@
-import { releaseDates_URL, popularity_URL, rating_URL } from "../../const"
 import { SORT_BY_RATING, SORT_BY_POPULARITY, SORT_BY_RELEASEDATE } from "./types"
 
 export const ratingSort = () => dispatch => {
-    fetch(rating_URL)
+    fetch(`${process.env.REACT_APP_BASE_URL}/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(movies => dispatch({
             type: SORT_BY_RATING,
@@ -13,7 +12,7 @@ export const ratingSort = () => dispatch => {
 
 
 export const popularitySort = () => dispatch => {
-    fetch(popularity_URL)
+    fetch(`${process.env.REACT_APP_BASE_URL}/discover/movie?sort_by=popularity.desc&vote_average.gte=1.5&${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(movies => dispatch({
             type: SORT_BY_POPULARITY,
@@ -23,7 +22,7 @@ export const popularitySort = () => dispatch => {
 }
 
 export const releaseDateSort = () => dispatch => {
-    fetch(releaseDates_URL)
+    fetch(`${process.env.REACT_APP_BASE_URL}/discover/movie?sort_by=primary_release_date.desc&vote_average.gte=6&primary_release_date.lte=2021-12-30&vote_count.gte=30&${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(movies => dispatch({
             type: SORT_BY_RELEASEDATE,

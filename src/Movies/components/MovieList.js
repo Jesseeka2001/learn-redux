@@ -1,5 +1,4 @@
 import React from 'react'
-import { IMG_URL, ERR_IMG } from '../../const'
 import '../styling/movies.css'
 import Overview from './Overview'
 
@@ -26,7 +25,7 @@ const MovieList = (props) => {
                 {props.data && props.data.map(item => (
                     <div className="movie" key={item.id}>
                         <div className="infos">
-                            <img src={item.poster_path ? IMG_URL + item.poster_path : ERR_IMG} alt={item.title} />
+                            <img src={item.poster_path ? process.env.REACT_APP_IMG_URL + item.poster_path : process.env.REACT_APP_ERR_IMG} alt={item.title} />
                             <div className="movie-info">
                                 <h3>{item.title}</h3>
                                 <span className={getColor(item.vote_average)}>{item.vote_average}</span>

@@ -1,9 +1,8 @@
 import { FETCH_TRAILERS } from './type';
-import { BASE_URL, API_KEY } from '../../const';
 
 
 export const fetchTrailers = (props) => dispatch => {
-        fetch(`${BASE_URL}/movie/${props}/videos?${API_KEY}`)
+        fetch(`${process.env.REACT_APP_BASE_URL}/movie/${props}/videos?${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(trailer => {dispatch({
             type: FETCH_TRAILERS,

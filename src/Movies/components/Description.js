@@ -1,6 +1,5 @@
 import { React, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { IMG_URL, ERR_IMG } from '../../const';
 import { fetchDesc } from '../actions/descActions';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -29,7 +28,7 @@ const Description = (props) => {
                     <button className="closebtn"  > &times; </button>
                 </Link>
                 <div className="overlay-content2" id="overlay-content2">
-                    <img src={movie.poster_path ? IMG_URL + movie.poster_path : ERR_IMG} className="poster" alt="frf" />
+                    <img src={movie.poster_path ? process.env.REACT_APP_IMG_URL + movie.poster_path : process.env.REACT_APP_ERR_IMG} className="poster" alt="frf" />
                     <div className="title">     {movie.original_title}
                         <span className={getColor(movie.vote_average)}> {movie.vote_average}</span>
                     </div>
@@ -46,7 +45,7 @@ const Description = (props) => {
 }
 Description.propTypes = {
     fetchDesc: PropTypes.func.isRequired,
-    desc: PropTypes.array.isRequired
+    desc: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({

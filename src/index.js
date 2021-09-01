@@ -8,7 +8,25 @@ import { Provider } from 'react-redux';
 
 
 
-
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+// module.exports = {
+//   plugins: [
+//     {
+//       resolve: `gatsby-source-custom`,
+//       options: {
+//         genre: process.env.GENRE_LIST,
+//       },
+//     },
+//   ],
+// }
+// const db = require('db')
+// db.connect({
+//   genre: process.env.GENRE_LIST,
+//   // username: process.env.DB_USER,
+//   // password: process.env.DB_PASS
+// })
 
 ReactDOM.render(
   <React.StrictMode>

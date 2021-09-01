@@ -1,7 +1,6 @@
 import '../styling/search.css'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import React from 'react'
+import { React, useState } from 'react'
 import { Button } from 'react-bootstrap'
 
 const Search=() =>{
