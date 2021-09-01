@@ -14,15 +14,3 @@ export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 export const ERR_IMG = "http://via.placeholder.com/1080x1580"
 export const YTB='https://www.youtube.com/embed/'
 export const GENRE_LIST= BASE_URL + '/genre/movie/list?' + API_KEY 
-
-
-// These constants are used for all async actions
-export const STATUS_START = 'STATUS_START';
-export const STATUS_ERROR = 'STATUS_ERROR';
-export const STATUS_SUCCESS = 'STATUS_SUCCESS';
-
-export const FETCH_MOVIES = 'FETCH_MOVIES';
-export const FETCH_GENRES = 'FETCH_GENRES';
-
-export const SET_GENRE_FILTER = 'SET_GENRE_FILTER';
-export const SET_RATING_FILTER = 'SET_RATING_FILTER';
