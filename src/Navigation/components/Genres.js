@@ -5,7 +5,6 @@ import { fetchGenres, setGenre } from '../actions/genreActions';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import '../styling/navigation.css'
-import {highlightSelection} from '../actions/highlightSelection'
 
 
 const Genres = (props) => {
@@ -21,35 +20,28 @@ const Genres = (props) => {
         (item) => {
             let selectedGenre = []
             const index = selectedGenre.indexOf(item);
-            if (index > -1) {
-                selectedGenre.splice(index, 1);
+            index > -1 ? selectedGenre.splice(index, 1) : selectedGenre.push(item);
 
-            } else {
-                selectedGenre.push(item);
-                // setCurrent([ selectedGenre[0], ...current])
-            }
             dispatch(setGenre([...current, selectedGenre[0]]))
             setCurrent([...current, selectedGenre[0]])
-            props.highlightSelection([...current, selectedGenre[0]])
-
+            highlightSelection([...current, selectedGenre[0]])
         },
         [current, dispatch]
     )
 
-    // usecallback
-    // function highlightSelection() {
-    //     const tags = document.querySelectorAll('.tag');
 
-    //     tags.forEach(tag => {
-    //         tag.classList.remove('highlight')
-    //     })
-    //     if (current.length !== 0) {
-    //         current.forEach(id => {
-    //             const hightlightedTag = document.getElementById(id);
-    //             hightlightedTag.classList.add('highlight');
-    //         })
-    //     }
-    // }
+    function highlightSelection  (props) {
+        const tags = document.querySelectorAll('.tag');
+
+        tags.forEach(tag => {
+            tag.classList.remove('highlight')
+        })
+        props.length !== 0 && props.forEach(id => {
+            const hightlightedTag = document.getElementById(id);
+            hightlightedTag.classList.add('highlight');
+        })
+    }
+
 
     return (
         <div>
@@ -76,13 +68,11 @@ const Genres = (props) => {
 
 Genres.propTypes = {
     fetchGenres: PropTypes.func.isRequired,
-    highlightSelection:PropTypes.func.isRequired,
     genres: PropTypes.array.isRequired,
-    // newPost: PropTypes.object
 }
 const mapStateToProps = state => ({
     genres: state.genres.items
 })
 
-export default connect(mapStateToProps, { fetchGenres, highlightSelection })(Genres);
+export default connect(mapStateToProps, { fetchGenres })(Genres);
 

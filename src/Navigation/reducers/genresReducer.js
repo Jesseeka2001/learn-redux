@@ -1,8 +1,9 @@
-import { FETCH_GENRES, NEW_MOVIES } from '../actions/types';
+import { FETCH_GENRES, HIGHLIGHT, NEW_MOVIES } from '../actions/types';
 
 const initialState = {
-    items: [], 
-    item: []   
+    items: [],
+    item: [],
+    itemt:[]
 }
 
 function genresReducer(state = initialState, action) {
@@ -12,12 +13,16 @@ function genresReducer(state = initialState, action) {
                 ...state,
                 items: action.payload
             }
-            case NEW_MOVIES:
+        case NEW_MOVIES:
             return {
                 ...state,
                 item: action.payload
             }
-
+        case HIGHLIGHT:
+            return {
+                ...state,
+                itemt: action.payload
+            }
         default:
             return state;
     }
